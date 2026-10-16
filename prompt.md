@@ -107,3 +107,23 @@ remove.
 git push http://<PERSONAL_ACCESS_TOKEN>@https://github.com/jasonlimlc/Non-Haze-Activities.git head.dudenuk3m
 ```
 *(Note: Personal access token redacted to adhere to GitHub Secret Scanning & Push Protection policy)*
+
+---
+
+### Prompt 11
+**Timestamp:** 2026-10-16T00:42:09-07:00  
+
+```text
+// OpenStreetMap API Example
+const response = await fetch('http://wiki.openstreetmap.org/wiki/API', {
+    method: 'GET',
+    headers: {
+        'Content-Type': 'application/json'
+    }
+});
+
+const data = await response.json();
+console.log(data);
+
+i need this for the singapore map
+```
