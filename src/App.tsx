@@ -11,6 +11,7 @@ import { ItinerarySubstitutionEngine } from './components/ItinerarySubstitutionE
 import { WhatToBuyGuide } from './components/WhatToBuyGuide';
 import { SymptomAndHelpCenter } from './components/SymptomAndHelpCenter';
 import { HazeEducationGuide } from './components/HazeEducationGuide';
+import { TalkToUsForum } from './components/TalkToUsForum';
 import { HazeSimulatorModal } from './components/HazeSimulatorModal';
 import { HazeAlertBanner } from './components/HazeAlertBanner';
 import { Footer } from './components/Footer';
@@ -142,6 +143,8 @@ export default function App() {
         {activeTab === 'health' && <SymptomAndHelpCenter />}
 
         {activeTab === 'education' && <HazeEducationGuide />}
+
+        {activeTab === 'talk' && <TalkToUsForum />}
       </main>
 
       {/* Footer */}

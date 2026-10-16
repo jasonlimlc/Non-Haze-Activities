@@ -1,8 +1,9 @@
 import React from 'react';
-import { ShieldCheck, Phone } from 'lucide-react';
+import { ShieldCheck, Phone, MessageSquare } from 'lucide-react';
+import { AppTab } from './Navbar';
 
 export const Footer: React.FC<{
-  onSelectTab: (tab: 'overview' | 'live' | 'itinerary' | 'supplies' | 'health' | 'education') => void;
+  onSelectTab: (tab: AppTab) => void;
 }> = ({ onSelectTab }) => {
   return (
     <footer className="bg-white border-t border-slate-200 mt-16 text-xs text-slate-500">
@@ -71,6 +72,15 @@ export const Footer: React.FC<{
                   className="hover:text-slate-900 transition-colors"
                 >
                   What is Haze? (Origin & Winds)
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => onSelectTab('talk')}
+                  className="hover:text-slate-900 transition-colors flex items-center gap-1 font-medium text-slate-700"
+                >
+                  <MessageSquare className="w-3 h-3 text-amber-500" />
+                  <span>Talk to Us & Forum</span>
                 </button>
               </li>
             </ul>

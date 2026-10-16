@@ -1,7 +1,7 @@
 import React from 'react';
-import { Home, ShieldAlert, Compass, ShoppingBag, Stethoscope, BookOpen } from 'lucide-react';
+import { Home, ShieldAlert, Compass, ShoppingBag, Stethoscope, BookOpen, MessageSquare } from 'lucide-react';
 
-export type AppTab = 'overview' | 'live' | 'itinerary' | 'supplies' | 'health' | 'education';
+export type AppTab = 'overview' | 'live' | 'itinerary' | 'supplies' | 'health' | 'education' | 'talk';
 
 interface NavbarProps {
   activeTab: AppTab;
@@ -20,7 +20,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 }) => {
   return (
     <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200">
-      <div className="max-w-7xl mx-auto flex items-center justify-between gap-8 px-4 sm:px-6 py-3.5">
+      <div className="max-w-7xl mx-auto flex items-center justify-between gap-6 px-4 sm:px-6 py-3.5">
         {/* Zone 1: Brand wordmark (single text element wordmark, display face, whitespace-nowrap) */}
         <button
           onClick={() => onSelectTab('overview')}
@@ -33,7 +33,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         </button>
 
         {/* Zone 2: Clean single-line text navigation links */}
-        <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600">
+        <nav className="hidden md:flex items-center gap-5 lg:gap-6 text-sm font-medium text-slate-600 overflow-x-auto py-1">
           <button
             onClick={() => onSelectTab('overview')}
             className={`whitespace-nowrap shrink-0 transition-colors ${
@@ -93,6 +93,17 @@ export const Navbar: React.FC<NavbarProps> = ({
             }`}
           >
             Haze Guide
+          </button>
+          <button
+            onClick={() => onSelectTab('talk')}
+            className={`whitespace-nowrap shrink-0 transition-colors flex items-center gap-1.5 ${
+              activeTab === 'talk'
+                ? 'text-slate-950 font-semibold underline underline-offset-8 decoration-2 decoration-slate-900'
+                : 'hover:text-slate-900'
+            }`}
+          >
+            <MessageSquare className="w-4 h-4 text-amber-500" />
+            <span>Talk to Us</span>
           </button>
         </nav>
 
@@ -166,6 +177,15 @@ export const Navbar: React.FC<NavbarProps> = ({
         >
           <BookOpen className="w-3.5 h-3.5" />
           <span>Guide</span>
+        </button>
+        <button
+          onClick={() => onSelectTab('talk')}
+          className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg whitespace-nowrap ${
+            activeTab === 'talk' ? 'bg-slate-900 text-white font-semibold' : 'text-slate-600 bg-white border border-slate-200'
+          }`}
+        >
+          <MessageSquare className="w-3.5 h-3.5 text-amber-500" />
+          <span>Talk to Us</span>
         </button>
       </div>
     </header>

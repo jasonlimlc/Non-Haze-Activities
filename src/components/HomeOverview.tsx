@@ -25,7 +25,7 @@ interface HomeOverviewProps {
   allRegionsData: Record<SingaporeRegion, RegionalPsiData>;
   selectedRegion: SingaporeRegion;
   onSelectRegion: (region: SingaporeRegion) => void;
-  onNavigateToTab: (tab: 'live' | 'itinerary' | 'supplies' | 'health' | 'education') => void;
+  onNavigateToTab: (tab: 'live' | 'itinerary' | 'supplies' | 'health' | 'education' | 'talk') => void;
   userLocation: LocationMatchResult | null;
   onSetUserLocation: (loc: LocationMatchResult | null) => void;
 }
@@ -429,6 +429,29 @@ export const HomeOverview: React.FC<HomeOverviewProps> = ({
             <ArrowRight className="w-3.5 h-3.5" />
           </button>
         </div>
+      </div>
+
+      {/* Community & Forum Callout Banner */}
+      <div className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 rounded-3xl p-6 sm:p-8 text-white shadow-md flex flex-col md:flex-row md:items-center justify-between gap-6">
+        <div className="space-y-2 max-w-2xl">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 text-xs font-semibold">
+            <span>Disqus Community Forum</span>
+          </div>
+          <h3 className="text-xl sm:text-2xl font-bold tracking-tight">
+            Have Questions or Travel Tips? Talk to Us!
+          </h3>
+          <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Join our open discussion board powered by Disqus. Ask for live air quality feedback, suggest new indoor sanctuaries, or share where to grab masks in Singapore.
+          </p>
+        </div>
+
+        <button
+          onClick={() => onNavigateToTab('talk')}
+          className="shrink-0 px-6 py-3.5 rounded-2xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs transition-colors flex items-center justify-center gap-2 shadow-sm"
+        >
+          <span>Open "Talk to Us" Forum</span>
+          <ArrowRight className="w-4 h-4" />
+        </button>
       </div>
     </div>
   );
