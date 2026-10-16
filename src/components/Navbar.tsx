@@ -9,6 +9,7 @@ import {
   Clock,
   ChevronDown,
   MessageSquare,
+  MapPin,
 } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 import { SupportedLanguage } from '../data/translations';
@@ -69,10 +70,10 @@ export const Navbar: React.FC<NavbarProps> = ({
             onClick={() => onSelectTab('live')}
             className="flex items-center gap-2 text-left text-base font-bold text-slate-900 dark:text-white shrink-0 hover:opacity-85 transition-opacity"
           >
-            <div className="w-7 h-7 rounded-lg bg-sky-600 text-white flex items-center justify-center font-black text-xs shadow-xs">
-              CH
+            <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-sky-600 to-indigo-600 text-white flex items-center justify-center shadow-xs">
+              <MapPin className="w-4 h-4 stroke-[2.2] fill-white/20" />
             </div>
-            <span className="font-extrabold tracking-tight">Captain Haze</span>
+            <span className="font-extrabold tracking-tight">SG itinerary</span>
           </button>
 
           {/* Decluttered Navigation Links (Desktop) */}

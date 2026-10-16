@@ -1,4 +1,5 @@
 import React from 'react';
+import { MapPin } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 import { AppTab } from './Navbar';
 import { GuideSubSection } from './HazeGuideHub';
@@ -25,8 +26,8 @@ export const Footer: React.FC<FooterProps> = ({ onSelectTab, onSelectGuideSectio
           {/* Brand & Purpose */}
           <div className="space-y-3">
             <div className="flex items-center gap-2 font-bold text-slate-900 dark:text-white text-base">
-              <div className="w-7 h-7 rounded-lg bg-slate-900 dark:bg-sky-500 text-white flex items-center justify-center text-xs font-black">
-                CH
+              <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-sky-600 to-indigo-600 text-white flex items-center justify-center shadow-xs">
+                <MapPin className="w-4 h-4 stroke-[2.2] fill-white/20" />
               </div>
               <span>{t('brand')}</span>
             </div>

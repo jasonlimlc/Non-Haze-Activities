@@ -19,8 +19,8 @@ export const SUPPORTED_LANGUAGES: LanguageOption[] = [
 export const TRANSLATIONS: Record<SupportedLanguage, Record<string, string>> = {
   en: {
     // Brand & Tabs
-    brand: 'Captain Haze',
-    brandSub: 'Singapore Haze Tourist Guide',
+    brand: 'SG itinerary',
+    brandSub: 'Singapore Travel & Haze Guide',
     tabOverview: 'Overview',
     tabLive: 'Live Haze & Map',
     tabItinerary: 'Itinerary Swap',
@@ -40,7 +40,7 @@ export const TRANSLATIONS: Record<SupportedLanguage, Record<string, string>> = {
     timeNight: 'Nighttime (Auto Dark)',
 
     // Hero Overview
-    officialBadge: 'Captain Haze · Official Tourist Haze Companion',
+    officialBadge: 'SG itinerary · Official Singapore Travel Companion',
     heroTitle1: 'Explore Singapore Confidently,',
     heroTitle2: 'Whatever the Air Quality.',
     heroDesc:
@@ -190,22 +190,22 @@ export const TRANSLATIONS: Record<SupportedLanguage, Record<string, string>> = {
 
     // Talk to Us
     talkToUsTitle: 'Talk to Us',
-    talkToUsDesc: 'Share real-time haze observations, ask fellow tourists for indoor recommendations, or give feedback to the Captain Haze team.',
+    talkToUsDesc: 'Share real-time haze observations, ask fellow tourists for indoor recommendations, or give feedback to the SG itinerary team.',
     travelerSupport: 'Traveler Support',
     verifiedInfo: 'Verified Info',
     liveFeedback: 'Live Feedback',
     comments: 'Comments',
 
     // Footer
-    footerDesc: 'Captain Haze is an independent tourist advisory service powered by official Singapore NEA open environmental APIs and OneMap geospatial data.',
+    footerDesc: 'SG itinerary is an independent tourist advisory service powered by official Singapore NEA open environmental APIs and OneMap geospatial data.',
     emergencyNotice: 'Not a substitute for emergency medical care. In severe respiratory distress, dial 995 immediately.',
-    copyright: '© 2026 Captain Haze. Open data courtesy of data.gov.sg & NEA Singapore.',
+    copyright: '© 2026 SG itinerary. Open data courtesy of data.gov.sg & NEA Singapore.',
   },
 
   zh: {
     // Brand & Tabs
-    brand: 'Captain Haze 雾霾向导',
-    brandSub: '新加坡旅游雾霾实时指南',
+    brand: 'SG itinerary 新加坡行程',
+    brandSub: '新加坡旅游与雾霾实时指南',
     tabOverview: '总览',
     tabLive: '实时雾霾与地图',
     tabItinerary: '室内行程替换',
@@ -225,7 +225,7 @@ export const TRANSLATIONS: Record<SupportedLanguage, Record<string, string>> = {
     timeNight: '夜间（自动深色）',
 
     // Hero Overview
-    officialBadge: 'Captain Haze · 新加坡旅客官方雾霾伴侣',
+    officialBadge: 'SG itinerary · 新加坡旅客官方行程与雾霾伴侣',
     heroTitle1: '安心畅游新加坡，',
     heroTitle2: '无惧任何空气变化。',
     heroDesc: '输入您的酒店或目的地，获取您所在的新加坡国家环境局 (NEA) 专属监测分区、实时 PSI 预警，并将户外行程无缝切换为顶级室内空调胜地。',
@@ -374,21 +374,21 @@ export const TRANSLATIONS: Record<SupportedLanguage, Record<string, string>> = {
 
     // Talk to Us
     talkToUsTitle: '互动留言与游客社区',
-    talkToUsDesc: '分享您在新加坡当地的实时雾霾观察，向同行游客咨询室内好去处，或向 Captain Haze 团队反馈建议。',
+    talkToUsDesc: '分享您在新加坡当地的实时雾霾观察，向同行游客咨询室内好去处，或向 SG itinerary 团队反馈建议。',
     travelerSupport: '旅友互助',
     verifiedInfo: '权威求实',
     liveFeedback: '实时反馈',
     comments: '条评论',
 
     // Footer
-    footerDesc: 'Captain Haze 是一款独立的公益性新加坡旅游伴侣，数据依托新加坡国家环境局 (NEA) 官方开放接口与 OneMap 地理平台。',
+    footerDesc: 'SG itinerary 是一款独立的公益性新加坡旅游伴侣，数据依托新加坡国家环境局 (NEA) 官方开放接口与 OneMap 地理平台。',
     emergencyNotice: '本站不能替代专业医疗诊断。如出现严重呼吸急促或胸痛，请立即拨打 995 呼叫救护车。',
-    copyright: '© 2026 Captain Haze. 开放数据致谢 data.gov.sg & 新加坡国家环境局。',
+    copyright: '© 2026 SG itinerary. 开放数据致谢 data.gov.sg & 新加坡国家环境局。',
   },
 
   ja: {
-    brand: 'Captain Haze 煙霧ガイド',
-    brandSub: 'シンガポール観光 ヘイズリアルタイム案内',
+    brand: 'SG itinerary 旅程ガイド',
+    brandSub: 'シンガポール観光・ヘイズ案内',
     tabOverview: '概要',
     tabLive: 'リアルタイム大気＆地図',
     tabItinerary: '屋内コース切り替え',
@@ -406,7 +406,7 @@ export const TRANSLATIONS: Record<SupportedLanguage, Record<string, string>> = {
     timeDay: '日中（自動ライト）',
     timeNight: '夜間（自動ダーク）',
 
-    officialBadge: 'Captain Haze · シンガポール公式観光ヘイズコンパニオン',
+    officialBadge: 'SG itinerary · シンガポール公式観光コンパニオン',
     heroTitle1: '大気の状態に関わらず、',
     heroTitle2: '安心してシンガポールを満喫。',
     heroDesc: '滞在先ホテルを入力するだけで、NEA公式エリア別のリアルタイムPSI指数を確認。屋外観光を世界屈指のエアコン完備ドームや博物館に瞬時に切り替えられます。',
@@ -544,20 +544,20 @@ export const TRANSLATIONS: Record<SupportedLanguage, Record<string, string>> = {
     neaRulesTitle: 'NEA公式健康アドバイザリー基準',
 
     talkToUsTitle: '掲示板・コミュニティ',
-    talkToUsDesc: '現地の視界や大気状況の共有、屋内おすすめスポットの質問、Captain Hazeへのご意見はこちら。',
+    talkToUsDesc: '現地の視界や大気状況の共有、屋内おすすめスポットの質問、SG itineraryへのご意見はこちら。',
     travelerSupport: '旅行者サポート',
     verifiedInfo: '正確な情報',
     liveFeedback: 'リアルタイム意見',
     comments: '件のコメント',
 
-    footerDesc: 'Captain Hazeはシンガポール国家環境局(NEA)のオープンデータおよびOneMapを活用した独立系観光ガイドです。',
+    footerDesc: 'SG itineraryはシンガポール国家環境局(NEA)のオープンデータおよびOneMapを活用した独立系観光ガイドです。',
     emergencyNotice: '本サービスは医療機関の代わりにはなりません。重篤な呼吸困難がある場合は直ちに995へ通報してください。',
-    copyright: '© 2026 Captain Haze. Open data courtesy of data.gov.sg & NEA Singapore.',
+    copyright: '© 2026 SG itinerary. Open data courtesy of data.gov.sg & NEA Singapore.',
   },
 
   ko: {
-    brand: 'Captain Haze 헤이즈 가이드',
-    brandSub: '싱가포르 관광 헤이즈 실시간 안내',
+    brand: 'SG itinerary 여행 가이드',
+    brandSub: '싱가포르 여행 & 실시간 가이드',
     tabOverview: '개요',
     tabLive: '실시간 헤이즈 & 지도',
     tabItinerary: '실내 일정 대체',
@@ -575,7 +575,7 @@ export const TRANSLATIONS: Record<SupportedLanguage, Record<string, string>> = {
     timeDay: '주간 (자동 라이트)',
     timeNight: '야간 (자동 다크)',
 
-    officialBadge: 'Captain Haze · 싱가포르 공식 여행자 헤이즈 파트너',
+    officialBadge: 'SG itinerary · 싱가포르 공식 여행자 파트너',
     heroTitle1: '대기질에 상관없이,',
     heroTitle2: '싱가포르를 안심하고 여행하세요.',
     heroDesc: '호텔이나 목적지를 입력하여 공식 NEA 구역별 실시간 PSI 지수를 확인하고, 야외 산책 대신 공기 정화가 완비된 세계적 실내 명소로 일정을 즉시 전환하세요.',
@@ -713,20 +713,20 @@ export const TRANSLATIONS: Record<SupportedLanguage, Record<string, string>> = {
     neaRulesTitle: '싱가포르 정부 공식 가이드라인',
 
     talkToUsTitle: '여행자 커뮤니티 및 문의',
-    talkToUsDesc: '실시간 현지 시야 상황을 공유하고, 동료 여행자들에게 실내 추천 코스를 묻거나 피드백을 남겨주세요.',
+    talkToUsDesc: '실시간 현지 시야 상황을 공유하고, 동료 여행자들에게 실내 추천 코스를 묻거나 SG itinerary 팀에 피드백을 남겨주세요.',
     travelerSupport: '여행자 지원',
     verifiedInfo: '신뢰할 수 있는 정보',
     liveFeedback: '실시간 피드백',
     comments: '개의 댓글',
 
-    footerDesc: 'Captain Haze는 싱가포르 NEA 오픈 API와 OneMap 지리정보를 활용하는 비영리 여행자 가이드 서비스입니다.',
+    footerDesc: 'SG itinerary는 싱가포르 NEA 오픈 API와 OneMap 지리정보를 활용하는 비영리 여행자 가이드 서비스입니다.',
     emergencyNotice: '본 서비스는 의학적 진단을 대신할 수 없습니다. 심한 호흡 곤란 시 즉시 995로 연락하세요.',
-    copyright: '© 2026 Captain Haze. Open data courtesy of data.gov.sg & NEA Singapore.',
+    copyright: '© 2026 SG itinerary. Open data courtesy of data.gov.sg & NEA Singapore.',
   },
 
   th: {
-    brand: 'Captain Haze ไกด์หมอกควัน',
-    brandSub: 'คู่มือนักท่องเที่ยวหมอกควันสิงคโปร์แบบเรียลไทม์',
+    brand: 'SG itinerary แผนเที่ยวสิงคโปร์',
+    brandSub: 'คู่มือนักท่องเที่ยวและวางแผนการเดินทางสิงคโปร์',
     tabOverview: 'ภาพรวม',
     tabLive: 'มลพิษสด & แผนที่',
     tabItinerary: 'สลับแผนในร่ม',
@@ -744,7 +744,7 @@ export const TRANSLATIONS: Record<SupportedLanguage, Record<string, string>> = {
     timeDay: 'กลางวัน (สว่างอัตโนมัติ)',
     timeNight: 'กลางคืน (มืดอัตโนมัติ)',
 
-    officialBadge: 'Captain Haze · ผู้ช่วยหมอกควันสำหรับนักท่องเที่ยวสิงคโปร์',
+    officialBadge: 'SG itinerary · ผู้ช่วยวางแผนการเดินทางสิงคโปร์',
     heroTitle1: 'เที่ยวสิงคโปร์อย่างมั่นใจ,',
     heroTitle2: 'ไม่ว่าคุณภาพอากาศจะเป็นอย่างไร.',
     heroDesc: 'พิมพ์โรงแรมหรือจุดหมายเพื่อตรวจสอบโซนหมอกควัน NEA ของคุณ รับการแจ้งเตือน PSI สด และสลับการเดินกลางแจ้งเป็นสถานที่ท่องเที่ยวในร่มติดแอร์ระดับโลกได้ทันที',
@@ -882,20 +882,20 @@ export const TRANSLATIONS: Record<SupportedLanguage, Record<string, string>> = {
     neaRulesTitle: 'เกณฑ์มาตรฐานสุขภาพของ NEA สิงคโปร์',
 
     talkToUsTitle: 'พูดคุยและชุมชนนักท่องเที่ยว',
-    talkToUsDesc: 'แบ่งปันสภาพอากาศสด สอบถามคำแนะนำสถานที่ในร่ม หรือส่งข้อเสนอแนะถึงทีมงาน Captain Haze',
+    talkToUsDesc: 'แบ่งปันสภาพอากาศสด สอบถามคำแนะนำสถานที่ในร่ม หรือส่งข้อเสนอแนะถึงทีมงาน SG itinerary',
     travelerSupport: 'ช่วยเหลือเพื่อนร่วมทาง',
     verifiedInfo: 'ข้อมูลที่ตรวจสอบแล้ว',
     liveFeedback: 'ข้อเสนอแนะสด',
     comments: 'ความคิดเห็น',
 
-    footerDesc: 'Captain Haze เป็นบริการข้อมูลเพื่อนักท่องเที่ยวโดยใช้ข้อมูลเปิดจาก NEA และระบบ OneMap ของสิงคโปร์',
+    footerDesc: 'SG itinerary เป็นบริการข้อมูลเพื่อนักท่องเที่ยวโดยใช้ข้อมูลเปิดจาก NEA และระบบ OneMap ของสิงคโปร์',
     emergencyNotice: 'เว็บไซต์นี้ไม่ได้มีไว้สำหรับการวินิจฉัยทางการแพทย์ หากมีอาการหายใจลำบากรุนแรง ให้โทร 995 ทันที',
-    copyright: '© 2026 Captain Haze. Open data courtesy of data.gov.sg & NEA Singapore.',
+    copyright: '© 2026 SG itinerary. Open data courtesy of data.gov.sg & NEA Singapore.',
   },
 
   vi: {
-    brand: 'Captain Haze Hướng Dẫn Sương Mù',
-    brandSub: 'Cẩm nang du lịch sương mù Singapore thời gian thực',
+    brand: 'SG itinerary Lịch Trình Singapore',
+    brandSub: 'Cẩm nang lịch trình & du lịch Singapore',
     tabOverview: 'Tổng quan',
     tabLive: 'Không khí & Bản đồ',
     tabItinerary: 'Đổi lịch trình trong nhà',
@@ -913,7 +913,7 @@ export const TRANSLATIONS: Record<SupportedLanguage, Record<string, string>> = {
     timeDay: 'Ban ngày (Sáng tự động)',
     timeNight: 'Ban đêm (Tối tự động)',
 
-    officialBadge: 'Captain Haze · Trợ thủ du lịch chống sương mù Singapore',
+    officialBadge: 'SG itinerary · Trợ thủ du lịch & lịch trình Singapore',
     heroTitle1: 'Tự tin khám phá Singapore,',
     heroTitle2: 'Bất kể chất lượng không khí.',
     heroDesc: 'Nhập khách sạn hoặc điểm đến để biết chính xác phân vùng NEA, nhận cảnh báo PSI tức thì và chuyển đổi các chuyến đi bộ ngoài trời sang các tuyệt tác máy lạnh trong nhà đẳng cấp thế giới.',
@@ -1051,14 +1051,14 @@ export const TRANSLATIONS: Record<SupportedLanguage, Record<string, string>> = {
     neaRulesTitle: 'Khung khuyến nghị chính thức của NEA Singapore',
 
     talkToUsTitle: 'Giao lưu & Cộng đồng du khách',
-    talkToUsDesc: 'Chia sẻ tình hình thời tiết thực tế, hỏi kinh nghiệm các điểm vui chơi trong nhà hoặc gửi phản hồi cho Captain Haze.',
+    talkToUsDesc: 'Chia sẻ tình hình thời tiết thực tế, hỏi kinh nghiệm các điểm vui chơi trong nhà hoặc gửi phản hồi cho SG itinerary.',
     travelerSupport: 'Hỗ trợ bạn đồng hành',
     verifiedInfo: 'Thông tin xác thực',
     liveFeedback: 'Phản hồi trực tiếp',
     comments: 'bình luận',
 
-    footerDesc: 'Captain Haze là dịch vụ hướng dẫn du lịch độc lập dựa trên dữ liệu mở của NEA và OneMap Singapore.',
+    footerDesc: 'SG itinerary là dịch vụ hướng dẫn du lịch độc lập dựa trên dữ liệu mở của NEA và OneMap Singapore.',
     emergencyNotice: 'Trang web không thay thế cho chẩn đoán y tế chuyên nghiệp. Khi khó thở nghiêm trọng, hãy gọi ngay 995.',
-    copyright: '© 2026 Captain Haze. Open data courtesy of data.gov.sg & NEA Singapore.',
+    copyright: '© 2026 SG itinerary. Open data courtesy of data.gov.sg & NEA Singapore.',
   },
 };

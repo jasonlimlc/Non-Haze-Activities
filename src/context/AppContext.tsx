@@ -50,7 +50,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   // 1. Language State
   const [language, setLanguageState] = useState<SupportedLanguage>(() => {
     try {
-      const saved = localStorage.getItem('captain_haze_lang');
+      const saved = localStorage.getItem('sg_itinerary_lang') || localStorage.getItem('captain_haze_lang');
       if (saved && ['en', 'zh', 'ja', 'ko', 'th', 'vi'].includes(saved)) {
         return saved as SupportedLanguage;
       }
@@ -68,7 +68,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const setLanguage = (lang: SupportedLanguage) => {
     setLanguageState(lang);
     try {
-      localStorage.setItem('captain_haze_lang', lang);
+      localStorage.setItem('sg_itinerary_lang', lang);
     } catch {
       // ignore
     }
@@ -85,7 +85,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   // 2. Theme State with auto system time detection
   const [themeMode, setThemeModeState] = useState<ThemeMode>(() => {
     try {
-      const saved = localStorage.getItem('captain_haze_theme');
+      const saved = localStorage.getItem('sg_itinerary_theme') || localStorage.getItem('captain_haze_theme');
       if (saved && ['auto', 'light', 'dark'].includes(saved)) {
         return saved as ThemeMode;
       }
@@ -102,7 +102,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const setThemeMode = (mode: ThemeMode) => {
     setThemeModeState(mode);
     try {
-      localStorage.setItem('captain_haze_theme', mode);
+      localStorage.setItem('sg_itinerary_theme', mode);
     } catch {
       // ignore
     }

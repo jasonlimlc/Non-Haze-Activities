@@ -26,11 +26,11 @@ export const TalkToUs: React.FC = () => {
   }, [language]);
 
   const article = useMemo(() => {
-    const origin = typeof window !== 'undefined' ? window.location.origin : 'https://captainhaze.app';
+    const origin = typeof window !== 'undefined' ? window.location.origin : 'https://sgitinerary.app';
     return {
       url: `${origin}/talk-to-us`,
       id: 'captainhaze-tourist-community-discussion',
-      title: 'Captain Haze - Tourist Community Discussion & Live Forum',
+      title: 'SG itinerary - Tourist Community Discussion & Live Forum',
     };
   }, []);
 

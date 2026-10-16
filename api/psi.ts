@@ -39,7 +39,7 @@ export default async function handler(req: any, res?: any) {
     // Prepare headers - check environment for optional API key without hardcoding
     const headers: Record<string, string> = {
       Accept: 'application/json',
-      'User-Agent': 'CaptainHaze/1.0',
+      'User-Agent': 'SGItinerary/1.0',
     };
 
     const apiKey = process.env.DATA_GOV_SG_API_KEY || process.env.DATA_GOV_API_KEY;

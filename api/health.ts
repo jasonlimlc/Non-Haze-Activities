@@ -6,7 +6,7 @@
 export default async function handler(req: any, res?: any) {
   const healthData = {
     status: 'ok',
-    service: 'captain-haze-serverless-api',
+    service: 'sg-itinerary-serverless-api',
     timestamp: new Date().toISOString(),
     uptimeSeconds: Math.floor(process.uptime ? process.uptime() : 0),
     environment: {
