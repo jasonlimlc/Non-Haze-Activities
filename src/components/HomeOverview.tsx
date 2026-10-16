@@ -1,21 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import {
-  Compass,
-  MapPin,
-  Search,
-  Navigation,
-  ArrowRight,
-  ShieldCheck,
-  Sparkles,
-  Activity,
-  Layers,
-  ShoppingBag,
-  Stethoscope,
-  BookOpen,
-} from 'lucide-react';
+import { MapPin, Navigation, Sparkles } from 'lucide-react';
 import { RegionalPsiData, SingaporeRegion } from '../types/haze';
 import { IMAGES } from '../data/hazeData';
-import { SingaporeRegionalMap } from './SingaporeRegionalMap';
 import {
   resolveSingaporeLocation,
   resolveSingaporeLocationWithOneMap,
@@ -164,25 +150,28 @@ export const HomeOverview: React.FC<HomeOverviewProps> = ({
   ];
 
   return (
-    <div className="space-y-10">
-      {/* 1. Hero Search & Location Intelligence Header */}
-      <section className="relative rounded-3xl overflow-hidden border border-slate-200 bg-slate-950 text-white shadow-xl">
-        <div className="absolute inset-0">
+    <div className="w-full">
+      {/* Hero Search & Location Intelligence Interface (Clean Single Interface matching user design) */}
+      <section className="relative rounded-3xl overflow-hidden border border-slate-800/80 bg-slate-950 text-white shadow-2xl">
+        {/* Background Image with Cinematic Overlay */}
+        <div className="absolute inset-0 pointer-events-none">
           <img
             src={IMAGES.skyline}
             alt="Singapore Marina Bay Skyline"
             referrerPolicy="no-referrer"
             className="w-full h-full object-cover opacity-40 scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-slate-900/40" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/75 to-slate-900/40" />
         </div>
 
         <div className="relative z-10 p-6 sm:p-10 lg:p-12 max-w-4xl">
+          {/* Top Badge */}
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs text-slate-200 mb-4">
             <Sparkles className="w-3.5 h-3.5 text-amber-300" />
             <span>Captain Haze · Official Tourist Haze Companion</span>
           </div>
 
+          {/* Heading */}
           <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-white mb-4 leading-tight">
             Explore Singapore Confidently, <br className="hidden sm:inline" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-200 via-white to-amber-200">
@@ -190,6 +179,7 @@ export const HomeOverview: React.FC<HomeOverviewProps> = ({
             </span>
           </h1>
 
+          {/* Description */}
           <p className="text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl mb-8">
             Key in your hotel or destination to find your exact NEA haze zone, receive real-time PSI alerts, and instantly substitute outdoor walking with world-class air-conditioned sanctuaries.
           </p>
@@ -286,7 +276,7 @@ export const HomeOverview: React.FC<HomeOverviewProps> = ({
             </div>
           </div>
 
-          {/* Location Match Confirmation Box */}
+          {/* Location Match Confirmation Box (Exact layout and styling from image) */}
           {userLocation && (
             <div className="mt-4 p-4 rounded-2xl bg-slate-900/90 border border-white/20 backdrop-blur-md max-w-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-4 animate-fade-in shadow-xl">
               <div className="flex items-start sm:items-center gap-3">
@@ -295,7 +285,9 @@ export const HomeOverview: React.FC<HomeOverviewProps> = ({
                 </div>
                 <div>
                   <div className="flex flex-wrap items-center gap-2">
-                    <strong className="text-white text-sm">{userLocation.matchedName}</strong>
+                    <strong className="text-white text-sm uppercase tracking-wide">
+                      {userLocation.matchedName}
+                    </strong>
                     {userLocation.postal && (
                       <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-sky-500/20 text-sky-300 border border-sky-400/30">
                         Postal {userLocation.postal}
@@ -320,178 +312,12 @@ export const HomeOverview: React.FC<HomeOverviewProps> = ({
 
               <button
                 onClick={() => onNavigateToTab('live')}
-                className="self-start sm:self-center px-3.5 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-xs text-white font-semibold transition-colors shrink-0"
+                className="self-start sm:self-center px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-xs text-white font-bold transition-all shrink-0 border border-white/10 hover:border-white/20"
               >
                 View Full Reading
               </button>
             </div>
           )}
-        </div>
-      </section>
-
-      {/* 2. Maximised Singapore Regional Map & Real-Time Air Quality View */}
-      <section className="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200/90 shadow-sm space-y-6">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-          <div>
-            <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">
-              <span className="text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200 font-bold">
-                Live OpenStreetMap Engine
-              </span>
-              <span aria-hidden="true">·</span>
-              <span>data.gov.sg NEA Real-Time Feed</span>
-            </div>
-            <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
-              Singapore Live Air Quality by Geographic Sector
-            </h2>
-            <p className="text-xs sm:text-sm text-slate-500 mt-1 max-w-2xl">
-              Real-world street map with official National Environment Agency (NEA) regional haze polygons. Click any sector to inspect 24-hr PSI and 1-hr PM2.5 readings.
-            </p>
-          </div>
-
-          <button
-            onClick={() => onNavigateToTab('live')}
-            className="self-start sm:self-center inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-900 text-white text-xs font-bold hover:bg-slate-800 transition-all shadow-sm"
-          >
-            <span>Open Advanced Live Monitor</span>
-            <ArrowRight className="w-3.5 h-3.5" />
-          </button>
-        </div>
-
-        {/* Maximised Map Component */}
-        <SingaporeRegionalMap
-          selectedRegion={selectedRegion}
-          allRegionsData={allRegionsData}
-          onSelectRegion={onSelectRegion}
-          userLocationName={userLocation?.matchedName}
-          userCoordinates={userLocation?.coordinates}
-        />
-      </section>
-
-      {/* 3. Compact Tourist Quick Guide Toolbar (Clean Replacement for Pillars 1-4) */}
-      <section className="bg-slate-50 rounded-3xl p-6 sm:p-8 border border-slate-200/80">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
-          <div>
-            <h3 className="text-lg font-extrabold text-slate-900">
-              Tourist Essential Guides & Action Center
-            </h3>
-            <p className="text-xs text-slate-500 mt-0.5">
-              Everything you need to navigate smoke haze safely in Singapore
-            </p>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {/* Quick Nav 1: Itinerary */}
-          <button
-            type="button"
-            onClick={() => onNavigateToTab('itinerary')}
-            className="p-5 rounded-2xl bg-white border border-slate-200 hover:border-slate-300 hover:shadow-md transition-all text-left flex flex-col justify-between space-y-3 group"
-          >
-            <div className="flex items-center justify-between">
-              <span className="w-9 h-9 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center group-hover:scale-105 transition-transform">
-                <Compass className="w-5 h-5" />
-              </span>
-              <span className="text-[11px] font-semibold text-emerald-700 bg-emerald-50/80 px-2 py-0.5 rounded-md">
-                Sheltered
-              </span>
-            </div>
-            <div>
-              <h4 className="font-bold text-slate-900 text-sm group-hover:text-emerald-700 transition-colors">
-                Indoor Itineraries
-              </h4>
-              <p className="text-xs text-slate-500 mt-1 line-clamp-2 leading-relaxed">
-                Swap outdoor walks for cooled biodomes, museums, and underground mall trails.
-              </p>
-            </div>
-            <div className="text-[11px] font-bold text-slate-900 flex items-center gap-1 pt-1">
-              <span>View 7 Substitutions</span>
-              <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
-            </div>
-          </button>
-
-          {/* Quick Nav 2: What to Buy */}
-          <button
-            type="button"
-            onClick={() => onNavigateToTab('supplies')}
-            className="p-5 rounded-2xl bg-white border border-slate-200 hover:border-slate-300 hover:shadow-md transition-all text-left flex flex-col justify-between space-y-3 group"
-          >
-            <div className="flex items-center justify-between">
-              <span className="w-9 h-9 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center group-hover:scale-105 transition-transform">
-                <ShoppingBag className="w-5 h-5" />
-              </span>
-              <span className="text-[11px] font-semibold text-amber-700 bg-amber-50/80 px-2 py-0.5 rounded-md">
-                249 Outlets
-              </span>
-            </div>
-            <div>
-              <h4 className="font-bold text-slate-900 text-sm group-hover:text-amber-700 transition-colors">
-                What to Buy & Pharmacies
-              </h4>
-              <p className="text-xs text-slate-500 mt-1 line-clamp-2 leading-relaxed">
-                Certified 3M Aura N95 masks, saline eye washes, and live HSA retail pharmacy locator.
-              </p>
-            </div>
-            <div className="text-[11px] font-bold text-slate-900 flex items-center gap-1 pt-1">
-              <span>Locate Genuine Stock</span>
-              <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
-            </div>
-          </button>
-
-          {/* Quick Nav 3: Health */}
-          <button
-            type="button"
-            onClick={() => onNavigateToTab('health')}
-            className="p-5 rounded-2xl bg-white border border-slate-200 hover:border-slate-300 hover:shadow-md transition-all text-left flex flex-col justify-between space-y-3 group"
-          >
-            <div className="flex items-center justify-between">
-              <span className="w-9 h-9 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center group-hover:scale-105 transition-transform">
-                <Stethoscope className="w-5 h-5" />
-              </span>
-              <span className="text-[11px] font-semibold text-rose-700 bg-rose-50/80 px-2 py-0.5 rounded-md">
-                24h Emergency
-              </span>
-            </div>
-            <div>
-              <h4 className="font-bold text-slate-900 text-sm group-hover:text-rose-700 transition-colors">
-                Health Triage & Clinics
-              </h4>
-              <p className="text-xs text-slate-500 mt-1 line-clamp-2 leading-relaxed">
-                Emergency 995, hotel telemedicine, SGH, KKH pediatric A&E, and symptom check.
-              </p>
-            </div>
-            <div className="text-[11px] font-bold text-slate-900 flex items-center gap-1 pt-1">
-              <span>Find Medical Care</span>
-              <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
-            </div>
-          </button>
-
-          {/* Quick Nav 4: Education */}
-          <button
-            type="button"
-            onClick={() => onNavigateToTab('education')}
-            className="p-5 rounded-2xl bg-white border border-slate-200 hover:border-slate-300 hover:shadow-md transition-all text-left flex flex-col justify-between space-y-3 group"
-          >
-            <div className="flex items-center justify-between">
-              <span className="w-9 h-9 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center group-hover:scale-105 transition-transform">
-                <BookOpen className="w-5 h-5" />
-              </span>
-              <span className="text-[11px] font-semibold text-sky-700 bg-sky-50/80 px-2 py-0.5 rounded-md">
-                NEA Guide
-              </span>
-            </div>
-            <div>
-              <h4 className="font-bold text-slate-900 text-sm group-hover:text-sky-700 transition-colors">
-                Haze Science & PM2.5
-              </h4>
-              <p className="text-xs text-slate-500 mt-1 line-clamp-2 leading-relaxed">
-                Why monsoon winds bring smoke, 24h PSI vs 1h PM2.5, and age-specific guidelines.
-              </p>
-            </div>
-            <div className="text-[11px] font-bold text-slate-900 flex items-center gap-1 pt-1">
-              <span>Learn More</span>
-              <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
-            </div>
-          </button>
         </div>
       </section>
     </div>

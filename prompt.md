@@ -148,3 +148,14 @@ Maximise Map view.
 
 improve NEA Haze Zone graphic.
 ```
+
+---
+
+### Prompt 14
+**Timestamp:** 2026-10-16T00:55:15-07:00  
+
+```text
+keep overview clean.
+I only need one interface, refer to image.
+Remove everything else on this page
+```
