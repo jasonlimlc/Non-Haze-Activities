@@ -106,3 +106,69 @@ export interface AgeGroupGuideline {
   psi201Plus: string;
   keyPrecautions: string[];
 }
+
+export type TravelerProfileId =
+  | 'family'
+  | 'culture'
+  | 'foodie'
+  | 'budget'
+  | 'sensitive';
+
+export interface DayPlanSlot {
+  id: string;
+  timeSlot: string;
+  period: 'morning' | 'lunch' | 'afternoon' | 'evening';
+  title: string;
+  category: string;
+  location: string;
+  nearestMrt: string;
+  airQualityRating: 'HEPA Filtered' | 'Fully Enclosed AC' | 'Underground Sheltered';
+  admission: 'Free' | 'Ticketed';
+  estimatedCostSgd: string;
+  description: string;
+  shelteredConnectionNote: string;
+  imageUrl?: string;
+  tips: string[];
+}
+
+export interface TravelerProfile {
+  id: TravelerProfileId;
+  name: string;
+  tagline: string;
+  iconName: string;
+  description: string;
+  idealFor: string;
+  paceOptions: {
+    halfDay: DayPlanSlot[];
+    fullDay: DayPlanSlot[];
+  };
+}
+
+export interface MonsoonInfo {
+  currentSeason: string;
+  period: string;
+  riskLevel: 'Low' | 'Moderate' | 'Elevated' | 'High';
+  windDirectionDegree: number;
+  windDirectionText: string;
+  windSpeedKmh: number;
+  plumeRiskSummary: string;
+  hotspotsSumatra: number;
+  hotspotsKalimantan: number;
+  hotspotsMalaysia: number;
+  satelliteUpdateDate: string;
+  outlookNext24h: string;
+  outlookNext48h: string;
+  asmcAlertLevel: 'Level 1 (Normal)' | 'Level 2 (Dry Season / Moderate Risk)' | 'Level 3 (Haze Alert)';
+}
+
+export interface AttractionOutlook {
+  attractionName: string;
+  zone: string;
+  type: 'Theme Park' | 'Zoo & Wildlife' | 'Park & Garden' | 'Water & Beach' | 'Sightseeing Walking';
+  todayStatus: 'Proceed' | 'Caution' | 'Reschedule to Indoor';
+  tomorrowStatus: 'Proceed' | 'Caution' | 'Reschedule to Indoor';
+  outdoorExposureHours: string;
+  advisoryNote: string;
+  indoorSwapId?: string;
+}
+

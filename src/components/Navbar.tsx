@@ -1,7 +1,7 @@
 import React from 'react';
-import { Home, ShieldAlert, Compass, ShoppingBag, Stethoscope, BookOpen } from 'lucide-react';
+import { Home, ShieldAlert, Compass, ShoppingBag, Stethoscope, BookOpen, CalendarRange } from 'lucide-react';
 
-export type AppTab = 'overview' | 'live' | 'itinerary' | 'supplies' | 'health' | 'education';
+export type AppTab = 'overview' | 'live' | 'planner' | 'itinerary' | 'supplies' | 'health' | 'education';
 
 interface NavbarProps {
   activeTab: AppTab;
@@ -52,7 +52,20 @@ export const Navbar: React.FC<NavbarProps> = ({
                 : 'hover:text-slate-900'
             }`}
           >
-            Live Haze & Map
+            Live Map & Wind
+          </button>
+          <button
+            onClick={() => onSelectTab('planner')}
+            className={`whitespace-nowrap shrink-0 transition-colors inline-flex items-center gap-1.5 ${
+              activeTab === 'planner'
+                ? 'text-slate-950 font-semibold underline underline-offset-8 decoration-2 decoration-slate-900'
+                : 'hover:text-slate-900'
+            }`}
+          >
+            <span>Day Planner</span>
+            <span className="px-1.5 py-0.2 bg-emerald-100 text-emerald-800 text-[10px] font-bold rounded-full">
+              New
+            </span>
           </button>
           <button
             onClick={() => onSelectTab('itinerary')}
@@ -130,6 +143,15 @@ export const Navbar: React.FC<NavbarProps> = ({
         >
           <ShieldAlert className="w-3.5 h-3.5" />
           <span>Live Map</span>
+        </button>
+        <button
+          onClick={() => onSelectTab('planner')}
+          className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg whitespace-nowrap ${
+            activeTab === 'planner' ? 'bg-slate-900 text-white font-semibold' : 'text-slate-600 bg-white border border-slate-200'
+          }`}
+        >
+          <CalendarRange className="w-3.5 h-3.5" />
+          <span>Planner</span>
         </button>
         <button
           onClick={() => onSelectTab('itinerary')}

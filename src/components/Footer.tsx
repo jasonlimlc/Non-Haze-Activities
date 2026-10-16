@@ -2,7 +2,7 @@ import React from 'react';
 import { ShieldCheck, Phone } from 'lucide-react';
 
 export const Footer: React.FC<{
-  onSelectTab: (tab: 'overview' | 'live' | 'itinerary' | 'supplies' | 'health' | 'education') => void;
+  onSelectTab: (tab: 'overview' | 'live' | 'planner' | 'itinerary' | 'supplies' | 'health' | 'education') => void;
 }> = ({ onSelectTab }) => {
   return (
     <footer className="bg-white border-t border-slate-200 mt-16 text-xs text-slate-500">
@@ -35,10 +35,19 @@ export const Footer: React.FC<{
               </li>
               <li>
                 <button
+                  onClick={() => onSelectTab('planner')}
+                  className="hover:text-slate-900 transition-colors flex items-center gap-1 font-medium text-slate-800"
+                >
+                  <span>1-Click Day Planner</span>
+                  <span className="text-[9px] bg-emerald-100 text-emerald-800 px-1 rounded font-bold">New</span>
+                </button>
+              </li>
+              <li>
+                <button
                   onClick={() => onSelectTab('live')}
                   className="hover:text-slate-900 transition-colors"
                 >
-                  Live Regional PSI & 1-hr PM2.5
+                  Live Regional PSI & Wind Radar
                 </button>
               </li>
               <li>

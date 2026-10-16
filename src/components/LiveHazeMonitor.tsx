@@ -17,6 +17,7 @@ import { RegionalPsiData, SingaporeRegion } from '../types/haze';
 import { PSI_ADVISORY_BANDS, IMAGES } from '../data/hazeData';
 import { SingaporeRegionalMap } from './SingaporeRegionalMap';
 import { resolveSingaporeLocation, LocationMatchResult } from '../utils/locationResolver';
+import { MonsoonHotspotTracker } from './MonsoonHotspotTracker';
 
 interface LiveHazeMonitorProps {
   currentRegionData: RegionalPsiData;
@@ -50,6 +51,7 @@ export const LiveHazeMonitor: React.FC<LiveHazeMonitorProps> = ({
   onSetUserLocation,
 }) => {
   const [localSearch, setLocalSearch] = useState<string>('');
+  const [liveView, setLiveView] = useState<'map' | 'monsoon'>('map');
 
   const handleSearchSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -163,8 +165,52 @@ export const LiveHazeMonitor: React.FC<LiveHazeMonitorProps> = ({
         </div>
       </section>
 
-      {/* Main Dual Console: Circular Gauge & Accurate SVG Regional Map */}
-      <section className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      {/* Sub-navigation Switcher: Sector Map vs Monsoon Hotspot Tracker */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-200 pb-3">
+        <div className="inline-flex p-1 bg-slate-100 rounded-2xl border border-slate-200">
+          <button
+            onClick={() => setLiveView('map')}
+            className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center gap-2 ${
+              liveView === 'map'
+                ? 'bg-white text-slate-900 shadow-sm'
+                : 'text-slate-600 hover:text-slate-900'
+            }`}
+          >
+            <MapPin className="w-4 h-4 text-emerald-600" />
+            <span>Singapore 5 Sectors & Sensors</span>
+          </button>
+          <button
+            onClick={() => setLiveView('monsoon')}
+            className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center gap-2 ${
+              liveView === 'monsoon'
+                ? 'bg-white text-slate-900 shadow-sm'
+                : 'text-slate-600 hover:text-slate-900'
+            }`}
+          >
+            <Wind className="w-4 h-4 text-sky-600" />
+            <span>Monsoon Wind & Hotspot Radar</span>
+            <span className="px-1.5 py-0.5 rounded-full bg-indigo-100 text-indigo-800 text-[10px] font-bold">
+              ASMC
+            </span>
+          </button>
+        </div>
+
+        <button
+          onClick={onRefresh}
+          disabled={isRefreshing}
+          className="self-end sm:self-auto inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-semibold rounded-xl bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 transition-colors shadow-2xs"
+        >
+          <RefreshCw className={`w-3.5 h-3.5 text-slate-500 ${isRefreshing ? 'animate-spin' : ''}`} />
+          <span>{isRefreshing ? 'Refreshing...' : 'Refresh Live Feed'}</span>
+        </button>
+      </div>
+
+      {liveView === 'monsoon' ? (
+        <MonsoonHotspotTracker onNavigateToItinerary={onNavigateToItinerary} />
+      ) : (
+        <>
+          {/* Main Dual Console: Circular Gauge & Accurate SVG Regional Map */}
+          <section className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         {/* Left Column: Circular Atmospheric Gauge (5 Cols) */}
         <div className="lg:col-span-5 bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/90 shadow-sm flex flex-col justify-between relative overflow-hidden">
           <div className={`absolute -right-20 -top-20 w-64 h-64 rounded-full bg-gradient-to-br ${statusStyle.bgGradient} blur-2xl pointer-events-none`} />
@@ -364,6 +410,8 @@ export const LiveHazeMonitor: React.FC<LiveHazeMonitorProps> = ({
           ))}
         </div>
       </section>
+    </>
+      )}
     </div>
   );
 };

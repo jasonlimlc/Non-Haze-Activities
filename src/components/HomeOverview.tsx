@@ -12,8 +12,9 @@ import {
   Sparkles,
   PhoneCall,
   Activity,
-  CheckCircle2,
   AlertTriangle,
+  Wind,
+  CalendarRange,
 } from 'lucide-react';
 import { RegionalPsiData, SingaporeRegion } from '../types/haze';
 import { IMAGES, ITINERARY_SUBSTITUTIONS } from '../data/hazeData';
@@ -25,7 +26,7 @@ interface HomeOverviewProps {
   allRegionsData: Record<SingaporeRegion, RegionalPsiData>;
   selectedRegion: SingaporeRegion;
   onSelectRegion: (region: SingaporeRegion) => void;
-  onNavigateToTab: (tab: 'live' | 'itinerary' | 'supplies' | 'health' | 'education') => void;
+  onNavigateToTab: (tab: 'live' | 'planner' | 'itinerary' | 'supplies' | 'health' | 'education') => void;
   userLocation: LocationMatchResult | null;
   onSetUserLocation: (loc: LocationMatchResult | null) => void;
 }
@@ -242,6 +243,67 @@ export const HomeOverview: React.FC<HomeOverviewProps> = ({
           userLocationName={userLocation?.matchedName}
           userCoordinates={userLocation?.coordinates}
         />
+      </section>
+
+      {/* 2.5 New Features Spotlight: 1-Click Day Planner & Monsoon Hotspot Radar */}
+      <section className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* Spotlight 1: 1-Click Day Planner */}
+        <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 rounded-3xl p-6 sm:p-7 text-white border border-slate-700 shadow-md flex flex-col justify-between space-y-4">
+          <div>
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/30 text-[11px] text-emerald-300 font-bold mb-3">
+              <CalendarRange className="w-3.5 h-3.5" />
+              <span>New · 1-Click Haze Day Planner</span>
+            </div>
+            <h3 className="text-xl font-bold text-white mb-2 leading-tight">
+              Tailored Sheltered Itineraries by Travel Profile
+            </h3>
+            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-3">
+              Generate an all-weather, 100% sheltered schedule with zero outdoor smoke exposure. Tailored for families with toddlers, culture seekers, foodies, budget explorers, and respiratory-sensitive groups.
+            </p>
+            <div className="flex flex-wrap gap-1.5 text-[11px] text-slate-300">
+              <span className="px-2 py-0.5 rounded-md bg-white/10 border border-white/10">Stroller & Nursing Rooms</span>
+              <span className="px-2 py-0.5 rounded-md bg-white/10 border border-white/10">HEPA Biodomes</span>
+              <span className="px-2 py-0.5 rounded-md bg-white/10 border border-white/10">Subterranean MRT Corridors</span>
+            </div>
+          </div>
+
+          <button
+            onClick={() => onNavigateToTab('planner')}
+            className="w-full py-3 rounded-2xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold text-xs transition-colors flex items-center justify-center gap-2 shadow-sm"
+          >
+            <span>Generate Your Day Schedule</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </button>
+        </div>
+
+        {/* Spotlight 2: Monsoon Wind & Hotspot Radar */}
+        <div className="bg-gradient-to-br from-indigo-950 via-slate-900 to-slate-950 rounded-3xl p-6 sm:p-7 text-white border border-indigo-900/60 shadow-md flex flex-col justify-between space-y-4">
+          <div>
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sky-500/20 border border-sky-400/30 text-[11px] text-sky-300 font-bold mb-3">
+              <Wind className="w-3.5 h-3.5" />
+              <span>Satellite & Wind Intelligence</span>
+            </div>
+            <h3 className="text-xl font-bold text-white mb-2 leading-tight">
+              Transboundary Monsoon Wind & Regional Hotspot Tracker
+            </h3>
+            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-3">
+              Live tracking of prevailing monsoon winds, Sumatra & Kalimantan peat fire clusters, and a 48-hour attraction feasibility matrix (USS, Zoo, Sentosa Beach).
+            </p>
+            <div className="flex flex-wrap gap-1.5 text-[11px] text-slate-300">
+              <span className="px-2 py-0.5 rounded-md bg-white/10 border border-white/10">Wind Vector Compass</span>
+              <span className="px-2 py-0.5 rounded-md bg-white/10 border border-white/10">ASMC Satellite Count</span>
+              <span className="px-2 py-0.5 rounded-md bg-white/10 border border-white/10">48h Theme Park Advisory</span>
+            </div>
+          </div>
+
+          <button
+            onClick={() => onNavigateToTab('live')}
+            className="w-full py-3 rounded-2xl bg-sky-500 hover:bg-sky-400 text-slate-950 font-extrabold text-xs transition-colors flex items-center justify-center gap-2 shadow-sm"
+          >
+            <span>Open Wind & Hotspot Radar</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </button>
+        </div>
       </section>
 
       {/* 3. Four Core Highlight Pillars (Highlighting Each Tab) */}

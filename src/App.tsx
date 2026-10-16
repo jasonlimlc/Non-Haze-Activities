@@ -8,6 +8,7 @@ import { Navbar, AppTab } from './components/Navbar';
 import { HomeOverview } from './components/HomeOverview';
 import { LiveHazeMonitor } from './components/LiveHazeMonitor';
 import { ItinerarySubstitutionEngine } from './components/ItinerarySubstitutionEngine';
+import { HazeDayPlanner } from './components/HazeDayPlanner';
 import { WhatToBuyGuide } from './components/WhatToBuyGuide';
 import { SymptomAndHelpCenter } from './components/SymptomAndHelpCenter';
 import { HazeEducationGuide } from './components/HazeEducationGuide';
@@ -132,6 +133,15 @@ export default function App() {
             onToggleAlertThreshold={() => setAlertThresholdEnabled(!alertThresholdEnabled)}
             userLocation={userLocation}
             onSetUserLocation={setUserLocation}
+          />
+        )}
+
+        {activeTab === 'planner' && (
+          <HazeDayPlanner
+            currentPsi={effectivePsi}
+            psiStatus={effectiveRegionData.status}
+            onNavigateToSupplies={() => setActiveTab('supplies')}
+            onNavigateToSwap={() => setActiveTab('itinerary')}
           />
         )}
 
