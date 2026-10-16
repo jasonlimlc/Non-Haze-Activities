@@ -136,3 +136,15 @@ i need this for the singapore map
 ```text
 git push
 ```
+
+---
+
+### Prompt 13
+**Timestamp:** 2026-10-16T00:49:00-07:00  
+
+```text
+remove pillar 1  - 4 for overview.
+Maximise Map view.
+
+improve NEA Haze Zone graphic.
+```

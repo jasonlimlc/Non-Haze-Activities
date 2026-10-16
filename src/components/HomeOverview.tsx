@@ -6,17 +6,15 @@ import {
   Navigation,
   ArrowRight,
   ShieldCheck,
+  Sparkles,
+  Activity,
+  Layers,
   ShoppingBag,
   Stethoscope,
   BookOpen,
-  Sparkles,
-  PhoneCall,
-  Activity,
-  CheckCircle2,
-  AlertTriangle,
 } from 'lucide-react';
 import { RegionalPsiData, SingaporeRegion } from '../types/haze';
-import { IMAGES, ITINERARY_SUBSTITUTIONS } from '../data/hazeData';
+import { IMAGES } from '../data/hazeData';
 import { SingaporeRegionalMap } from './SingaporeRegionalMap';
 import {
   resolveSingaporeLocation,
@@ -331,30 +329,35 @@ export const HomeOverview: React.FC<HomeOverviewProps> = ({
         </div>
       </section>
 
-      {/* 2. Visual Regional Map & Air Status Dashboard (Requirement 3: Accurate Map) */}
+      {/* 2. Maximised Singapore Regional Map & Real-Time Air Quality View */}
       <section className="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200/90 shadow-sm space-y-6">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
             <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">
-              <span>National Environment Agency Feed</span>
+              <span className="text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200 font-bold">
+                Live OpenStreetMap Engine
+              </span>
               <span aria-hidden="true">·</span>
-              <span>data.gov.sg Real-Time</span>
+              <span>data.gov.sg NEA Real-Time Feed</span>
             </div>
-            <h2 className="text-2xl font-black text-slate-900">
+            <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
               Singapore Live Air Quality by Geographic Sector
             </h2>
+            <p className="text-xs sm:text-sm text-slate-500 mt-1 max-w-2xl">
+              Real-world street map with official National Environment Agency (NEA) regional haze polygons. Click any sector to inspect 24-hr PSI and 1-hr PM2.5 readings.
+            </p>
           </div>
 
           <button
             onClick={() => onNavigateToTab('live')}
-            className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-900 hover:text-slate-700 transition-colors"
+            className="self-start sm:self-center inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-900 text-white text-xs font-bold hover:bg-slate-800 transition-all shadow-sm"
           >
             <span>Open Advanced Live Monitor</span>
             <ArrowRight className="w-3.5 h-3.5" />
           </button>
         </div>
 
-        {/* High-Accuracy SVG Regional Map Component */}
+        {/* Maximised Map Component */}
         <SingaporeRegionalMap
           selectedRegion={selectedRegion}
           allRegionsData={allRegionsData}
@@ -364,192 +367,133 @@ export const HomeOverview: React.FC<HomeOverviewProps> = ({
         />
       </section>
 
-      {/* 3. Four Core Highlight Pillars (Highlighting Each Tab) */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {/* Pillar 1: Itinerary Substitution Highlight */}
-        <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/90 shadow-sm flex flex-col justify-between space-y-6 group">
+      {/* 3. Compact Tourist Quick Guide Toolbar (Clean Replacement for Pillars 1-4) */}
+      <section className="bg-slate-50 rounded-3xl p-6 sm:p-8 border border-slate-200/80">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
           <div>
-            <div className="flex items-center justify-between mb-3">
-              <span className="text-xs font-bold uppercase tracking-wider text-emerald-600 flex items-center gap-1.5">
-                <Compass className="w-4 h-4" />
-                <span>Pillar 1 · Holiday Contingency</span>
-              </span>
-              <span className="text-[11px] font-semibold text-slate-400">100% Sheltered</span>
-            </div>
-
-            <h3 className="text-xl font-bold text-slate-900 mb-2">
-              Swap Outdoor Plans for Filtered Indoor Sanctuaries
+            <h3 className="text-lg font-extrabold text-slate-900">
+              Tourist Essential Guides & Action Center
             </h3>
-            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
-              If haze spikes outside, switch to Singapore’s world-class cooled biodomes and subterranean trails with underground MRT connectivity.
+            <p className="text-xs text-slate-500 mt-0.5">
+              Everything you need to navigate smoke haze safely in Singapore
             </p>
-
-            {/* Quick Mini Cards */}
-            <div className="grid grid-cols-3 gap-2">
-              <div className="rounded-2xl overflow-hidden border border-slate-200 bg-slate-100 aspect-video relative">
-                <img
-                  src={IMAGES.cloudForest}
-                  alt="Cloud Forest Dome"
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-1.5">
-                  <span className="text-[10px] font-bold text-white leading-tight">Cloud Forest</span>
-                </div>
-              </div>
-              <div className="rounded-2xl overflow-hidden border border-slate-200 bg-slate-100 aspect-video relative">
-                <img
-                  src={IMAGES.jewel}
-                  alt="Jewel Changi"
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-1.5">
-                  <span className="text-[10px] font-bold text-white leading-tight">Jewel Changi</span>
-                </div>
-              </div>
-              <div className="rounded-2xl overflow-hidden border border-slate-200 bg-slate-100 aspect-video relative">
-                <img
-                  src={IMAGES.aquarium}
-                  alt="SEA Aquarium"
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-1.5">
-                  <span className="text-[10px] font-bold text-white leading-tight">S.E.A. Aquarium</span>
-                </div>
-              </div>
-            </div>
           </div>
+        </div>
 
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {/* Quick Nav 1: Itinerary */}
           <button
+            type="button"
             onClick={() => onNavigateToTab('itinerary')}
-            className="w-full py-3 rounded-2xl bg-slate-900 text-white font-bold text-xs hover:bg-slate-800 transition-colors flex items-center justify-center gap-2 shadow-sm"
+            className="p-5 rounded-2xl bg-white border border-slate-200 hover:border-slate-300 hover:shadow-md transition-all text-left flex flex-col justify-between space-y-3 group"
           >
-            <span>Explore All 7 Indoor Substitutions</span>
-            <ArrowRight className="w-3.5 h-3.5" />
-          </button>
-        </div>
-
-        {/* Pillar 2: What to Buy & Pharmacy Highlight */}
-        <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/90 shadow-sm flex flex-col justify-between space-y-6">
-          <div>
-            <div className="flex items-center justify-between mb-3">
-              <span className="text-xs font-bold uppercase tracking-wider text-amber-600 flex items-center gap-1.5">
-                <ShoppingBag className="w-4 h-4" />
-                <span>Pillar 2 · Essential Haze Kit</span>
+            <div className="flex items-center justify-between">
+              <span className="w-9 h-9 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center group-hover:scale-105 transition-transform">
+                <Compass className="w-5 h-5" />
               </span>
-              <span className="text-[11px] font-semibold text-slate-400">Official Stockists</span>
-            </div>
-
-            <h3 className="text-xl font-bold text-slate-900 mb-2">
-              Certified N95 Respirators & 24/7 Pharmacies
-            </h3>
-            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
-              Learn why ordinary blue surgical masks fail against fine PM2.5 smoke and locate 24-hour pharmacies (Guardian Changi Airport & Mustafa Centre).
-            </p>
-
-            <div className="p-3.5 rounded-2xl bg-amber-50/70 border border-amber-200 text-xs text-amber-950 space-y-1">
-              <span className="font-bold block">Tourist Protection Checklist:</span>
-              <div className="flex flex-wrap gap-2 pt-1 text-[11px]">
-                <span className="bg-white px-2 py-0.5 rounded border border-amber-200">
-                  3M Aura N95 Mask
-                </span>
-                <span className="bg-white px-2 py-0.5 rounded border border-amber-200">
-                  Preservative-Free Tears
-                </span>
-                <span className="bg-white px-2 py-0.5 rounded border border-amber-200">
-                  Sterile Saline Spray
-                </span>
-              </div>
-            </div>
-          </div>
-
-          <button
-            onClick={() => onNavigateToTab('supplies')}
-            className="w-full py-3 rounded-2xl bg-slate-900 text-white font-bold text-xs hover:bg-slate-800 transition-colors flex items-center justify-center gap-2 shadow-sm"
-          >
-            <span>View Mask Buying Guide & Outlets</span>
-            <ArrowRight className="w-3.5 h-3.5" />
-          </button>
-        </div>
-
-        {/* Pillar 3: Medical & SOS Help Highlight */}
-        <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/90 shadow-sm flex flex-col justify-between space-y-6">
-          <div>
-            <div className="flex items-center justify-between mb-3">
-              <span className="text-xs font-bold uppercase tracking-wider text-rose-600 flex items-center gap-1.5">
-                <Stethoscope className="w-4 h-4" />
-                <span>Pillar 3 · Health & Clinics</span>
+              <span className="text-[11px] font-semibold text-emerald-700 bg-emerald-50/80 px-2 py-0.5 rounded-md">
+                Sheltered
               </span>
-              <span className="text-[11px] font-bold text-rose-600">SCDF Emergency 995</span>
             </div>
-
-            <h3 className="text-xl font-bold text-slate-900 mb-2">
-              Symptom Triage & 24-Hour Emergency Hospitals
-            </h3>
-            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
-              Instant clinical self-check for dry coughing, eye stinging, or breathlessness. Direct links to SGH, KKH pediatric emergency, and hotel room telemedicine.
-            </p>
-
-            <div className="flex items-center gap-3">
-              <a
-                href="tel:995"
-                className="flex-1 py-2.5 px-3 rounded-xl bg-rose-50 text-rose-700 border border-rose-200 font-bold text-xs text-center flex items-center justify-center gap-1.5"
-              >
-                <PhoneCall className="w-3.5 h-3.5 text-rose-600" />
-                <span>Ambulance 995</span>
-              </a>
-              <a
-                href="tel:1777"
-                className="flex-1 py-2.5 px-3 rounded-xl bg-slate-50 text-slate-700 border border-slate-200 font-bold text-xs text-center"
-              >
-                Non-Emergency 1777
-              </a>
-            </div>
-          </div>
-
-          <button
-            onClick={() => onNavigateToTab('health')}
-            className="w-full py-3 rounded-2xl bg-slate-900 text-white font-bold text-xs hover:bg-slate-800 transition-colors flex items-center justify-center gap-2 shadow-sm"
-          >
-            <span>Open Medical Directory & Triage</span>
-            <ArrowRight className="w-3.5 h-3.5" />
-          </button>
-        </div>
-
-        {/* Pillar 4: Science & Haze 101 Highlight */}
-        <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/90 shadow-sm flex flex-col justify-between space-y-6">
-          <div>
-            <div className="flex items-center justify-between mb-3">
-              <span className="text-xs font-bold uppercase tracking-wider text-sky-600 flex items-center gap-1.5">
-                <BookOpen className="w-4 h-4" />
-                <span>Pillar 4 · What is Haze?</span>
-              </span>
-              <span className="text-[11px] font-semibold text-slate-400">NEA Standards</span>
-            </div>
-
-            <h3 className="text-xl font-bold text-slate-900 mb-2">
-              Understanding the Southeast Asian Smoke Haze
-            </h3>
-            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
-              Learn about regional peatland fires, seasonal monsoon wind patterns (June–October), and the difference between 24-hr PSI and 1-hr PM2.5.
-            </p>
-
-            <div className="p-3.5 rounded-2xl bg-sky-50/70 border border-sky-200 text-xs text-sky-950">
-              <span className="font-bold block mb-1">Key Rule of Thumb:</span>
-              <p className="text-[11px] leading-relaxed">
-                Check the <strong>1-hour PM2.5</strong> reading before heading out to Marina Bay. It represents immediate air quality right this hour.
+            <div>
+              <h4 className="font-bold text-slate-900 text-sm group-hover:text-emerald-700 transition-colors">
+                Indoor Itineraries
+              </h4>
+              <p className="text-xs text-slate-500 mt-1 line-clamp-2 leading-relaxed">
+                Swap outdoor walks for cooled biodomes, museums, and underground mall trails.
               </p>
             </div>
-          </div>
+            <div className="text-[11px] font-bold text-slate-900 flex items-center gap-1 pt-1">
+              <span>View 7 Substitutions</span>
+              <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+            </div>
+          </button>
 
+          {/* Quick Nav 2: What to Buy */}
           <button
-            onClick={() => onNavigateToTab('education')}
-            className="w-full py-3 rounded-2xl bg-slate-900 text-white font-bold text-xs hover:bg-slate-800 transition-colors flex items-center justify-center gap-2 shadow-sm"
+            type="button"
+            onClick={() => onNavigateToTab('supplies')}
+            className="p-5 rounded-2xl bg-white border border-slate-200 hover:border-slate-300 hover:shadow-md transition-all text-left flex flex-col justify-between space-y-3 group"
           >
-            <span>Read Complete Educational Guide</span>
-            <ArrowRight className="w-3.5 h-3.5" />
+            <div className="flex items-center justify-between">
+              <span className="w-9 h-9 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center group-hover:scale-105 transition-transform">
+                <ShoppingBag className="w-5 h-5" />
+              </span>
+              <span className="text-[11px] font-semibold text-amber-700 bg-amber-50/80 px-2 py-0.5 rounded-md">
+                249 Outlets
+              </span>
+            </div>
+            <div>
+              <h4 className="font-bold text-slate-900 text-sm group-hover:text-amber-700 transition-colors">
+                What to Buy & Pharmacies
+              </h4>
+              <p className="text-xs text-slate-500 mt-1 line-clamp-2 leading-relaxed">
+                Certified 3M Aura N95 masks, saline eye washes, and live HSA retail pharmacy locator.
+              </p>
+            </div>
+            <div className="text-[11px] font-bold text-slate-900 flex items-center gap-1 pt-1">
+              <span>Locate Genuine Stock</span>
+              <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+            </div>
+          </button>
+
+          {/* Quick Nav 3: Health */}
+          <button
+            type="button"
+            onClick={() => onNavigateToTab('health')}
+            className="p-5 rounded-2xl bg-white border border-slate-200 hover:border-slate-300 hover:shadow-md transition-all text-left flex flex-col justify-between space-y-3 group"
+          >
+            <div className="flex items-center justify-between">
+              <span className="w-9 h-9 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center group-hover:scale-105 transition-transform">
+                <Stethoscope className="w-5 h-5" />
+              </span>
+              <span className="text-[11px] font-semibold text-rose-700 bg-rose-50/80 px-2 py-0.5 rounded-md">
+                24h Emergency
+              </span>
+            </div>
+            <div>
+              <h4 className="font-bold text-slate-900 text-sm group-hover:text-rose-700 transition-colors">
+                Health Triage & Clinics
+              </h4>
+              <p className="text-xs text-slate-500 mt-1 line-clamp-2 leading-relaxed">
+                Emergency 995, hotel telemedicine, SGH, KKH pediatric A&E, and symptom check.
+              </p>
+            </div>
+            <div className="text-[11px] font-bold text-slate-900 flex items-center gap-1 pt-1">
+              <span>Find Medical Care</span>
+              <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+            </div>
+          </button>
+
+          {/* Quick Nav 4: Education */}
+          <button
+            type="button"
+            onClick={() => onNavigateToTab('education')}
+            className="p-5 rounded-2xl bg-white border border-slate-200 hover:border-slate-300 hover:shadow-md transition-all text-left flex flex-col justify-between space-y-3 group"
+          >
+            <div className="flex items-center justify-between">
+              <span className="w-9 h-9 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center group-hover:scale-105 transition-transform">
+                <BookOpen className="w-5 h-5" />
+              </span>
+              <span className="text-[11px] font-semibold text-sky-700 bg-sky-50/80 px-2 py-0.5 rounded-md">
+                NEA Guide
+              </span>
+            </div>
+            <div>
+              <h4 className="font-bold text-slate-900 text-sm group-hover:text-sky-700 transition-colors">
+                Haze Science & PM2.5
+              </h4>
+              <p className="text-xs text-slate-500 mt-1 line-clamp-2 leading-relaxed">
+                Why monsoon winds bring smoke, 24h PSI vs 1h PM2.5, and age-specific guidelines.
+              </p>
+            </div>
+            <div className="text-[11px] font-bold text-slate-900 flex items-center gap-1 pt-1">
+              <span>Learn More</span>
+              <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+            </div>
           </button>
         </div>
-      </div>
+      </section>
     </div>
   );
 };
