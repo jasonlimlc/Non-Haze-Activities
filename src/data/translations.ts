@@ -27,6 +27,7 @@ export const TRANSLATIONS: Record<SupportedLanguage, Record<string, string>> = {
     tabSupplies: 'What to Buy',
     tabHealth: 'Medical & Clinics',
     tabEducation: 'Haze Guide',
+    tabTalk: 'Talk to Us',
     psiSimulator: 'PSI Simulator',
     simulatorActive: 'Simulator Active',
 
@@ -163,6 +164,7 @@ export const TRANSLATIONS: Record<SupportedLanguage, Record<string, string>> = {
     tabSupplies: '防护物资与药房',
     tabHealth: '就医与诊所',
     tabEducation: '雾霾科普',
+    tabTalk: '互动留言',
     psiSimulator: 'PSI 模拟器',
     simulatorActive: '模拟中',
 
@@ -298,6 +300,7 @@ export const TRANSLATIONS: Record<SupportedLanguage, Record<string, string>> = {
     tabSupplies: '防護グッズ・薬局',
     tabHealth: '医療・クリニック',
     tabEducation: 'ヘイズ基礎知識',
+    tabTalk: 'ご意見・掲示板',
     psiSimulator: 'PSIシミュレーター',
     simulatorActive: 'シミュレーション中',
 
@@ -433,6 +436,7 @@ export const TRANSLATIONS: Record<SupportedLanguage, Record<string, string>> = {
     tabSupplies: '방호용품 & 약국',
     tabHealth: '응급의료 & 클리닉',
     tabEducation: '헤이즈 가이드',
+    tabTalk: '토크 & 문의',
     psiSimulator: 'PSI 시뮬레이터',
     simulatorActive: '시뮬레이션 중',
 
@@ -568,6 +572,7 @@ export const TRANSLATIONS: Record<SupportedLanguage, Record<string, string>> = {
     tabSupplies: 'อุปกรณ์และร้านยา',
     tabHealth: 'การแพทย์และคลินิก',
     tabEducation: 'คู่มือหมอกควัน',
+    tabTalk: 'พูดคุยกับเรา',
     psiSimulator: 'จำลองค่า PSI',
     simulatorActive: 'กำลังจำลอง',
 
@@ -703,6 +708,7 @@ export const TRANSLATIONS: Record<SupportedLanguage, Record<string, string>> = {
     tabSupplies: 'Đồ phòng hộ & Nhà thuốc',
     tabHealth: 'Y tế & Phòng khám',
     tabEducation: 'Cẩm nang khói mù',
+    tabTalk: 'Trò chuyện',
     psiSimulator: 'Mô phỏng PSI',
     simulatorActive: 'Đang mô phỏng',
 

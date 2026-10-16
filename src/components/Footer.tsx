@@ -89,6 +89,14 @@ export const Footer: React.FC<FooterProps> = ({ onSelectTab, onSelectGuideSectio
                   {t('tabHealth')} (Clinics & Emergency)
                 </button>
               </li>
+              <li>
+                <button
+                  onClick={() => onSelectTab('talk')}
+                  className="hover:text-slate-900 dark:hover:text-white transition-colors"
+                >
+                  {t('tabTalk')} (Disqus Community)
+                </button>
+              </li>
             </ul>
           </div>
 

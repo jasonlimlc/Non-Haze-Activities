@@ -10,6 +10,7 @@ import { HomeOverview } from './components/HomeOverview';
 import { LiveHazeMonitor } from './components/LiveHazeMonitor';
 import { ItinerarySubstitutionEngine } from './components/ItinerarySubstitutionEngine';
 import { HazeGuideHub, GuideSubSection } from './components/HazeGuideHub';
+import { TalkToUs } from './components/TalkToUs';
 import { HazeSimulatorModal } from './components/HazeSimulatorModal';
 import { HazeAlertBanner } from './components/HazeAlertBanner';
 import { Footer } from './components/Footer';
@@ -159,6 +160,8 @@ function MainAppContent() {
         {activeTab === 'guide' && (
           <HazeGuideHub initialSection={guideSubSection} />
         )}
+
+        {activeTab === 'talk' && <TalkToUs />}
       </main>
 
       {/* Footer */}
