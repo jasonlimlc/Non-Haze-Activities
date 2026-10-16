@@ -43,14 +43,6 @@ export const Footer: React.FC<FooterProps> = ({ onSelectTab, onSelectGuideSectio
             <ul className="space-y-1.5 text-[11px]">
               <li>
                 <button
-                  onClick={() => onSelectTab('overview')}
-                  className="hover:text-slate-900 dark:hover:text-white transition-colors"
-                >
-                  {t('tabOverview')}
-                </button>
-              </li>
-              <li>
-                <button
                   onClick={() => onSelectTab('live')}
                   className="hover:text-slate-900 dark:hover:text-white transition-colors"
                 >

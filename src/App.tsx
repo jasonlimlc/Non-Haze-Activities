@@ -6,7 +6,6 @@
 import React, { useEffect, useState } from 'react';
 import { AppProvider, useApp } from './context/AppContext';
 import { Navbar, AppTab } from './components/Navbar';
-import { HomeOverview } from './components/HomeOverview';
 import { LiveHazeMonitor } from './components/LiveHazeMonitor';
 import { ItinerarySubstitutionEngine } from './components/ItinerarySubstitutionEngine';
 import { HazeGuideHub, GuideSubSection } from './components/HazeGuideHub';
@@ -21,7 +20,7 @@ import { LocationMatchResult } from './utils/locationResolver';
 
 function MainAppContent() {
   const { effectiveTheme, isMobile } = useApp();
-  const [activeTab, setActiveTab] = useState<AppTab>('overview');
+  const [activeTab, setActiveTab] = useState<AppTab>('live');
   const [guideSubSection, setGuideSubSection] = useState<GuideSubSection>('education');
   const [selectedRegion, setSelectedRegion] = useState<SingaporeRegion>('central');
   const [userLocation, setUserLocation] = useState<LocationMatchResult | null>({
@@ -93,7 +92,7 @@ function MainAppContent() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col font-sans transition-colors duration-200 bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 selection:bg-sky-500 selection:text-white">
+    <div className={`min-h-screen flex flex-col font-sans transition-colors duration-200 ${effectiveTheme === 'dark' ? 'dark' : ''} bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 selection:bg-sky-500 selection:text-white`}>
       {/* Top Advisory Banner (Active when PSI > 100) */}
       <HazeAlertBanner
         psi={effectivePsi}
@@ -119,21 +118,6 @@ function MainAppContent() {
 
       {/* Main Viewport Container with dynamic mobile scaling */}
       <main className="flex-1 max-w-7xl w-full mx-auto px-3.5 sm:px-6 py-5 sm:py-8 pb-24 md:pb-8 mobile-scale-container">
-        {activeTab === 'overview' && (
-          <HomeOverview
-            currentRegionData={effectiveRegionData}
-            allRegionsData={regionsData}
-            selectedRegion={selectedRegion}
-            onSelectRegion={setSelectedRegion}
-            onNavigateToTab={(tab) => {
-              setActiveTab(tab);
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
-            userLocation={userLocation}
-            onSetUserLocation={setUserLocation}
-          />
-        )}
-
         {activeTab === 'live' && (
           <LiveHazeMonitor
             currentRegionData={effectiveRegionData}

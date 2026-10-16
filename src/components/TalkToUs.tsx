@@ -44,18 +44,18 @@ export const TalkToUs: React.FC = () => {
   return (
     <div className="w-full space-y-6 sm:space-y-8 max-w-4xl mx-auto">
       {/* Header Banner */}
-      <section className="bg-white/80 dark:bg-slate-900/80 rounded-3xl p-6 sm:p-8 border border-slate-200/90 dark:border-slate-800 shadow-sm backdrop-blur-md transition-colors">
+      <section className="bg-white/80 dark:bg-slate-900/80 rounded-3xl p-6 sm:p-8 border border-slate-200/90 dark:border-slate-800 shadow-sm backdrop-blur-md text-slate-900 dark:text-white transition-colors">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-100 dark:border-slate-800">
           <div>
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sky-50 dark:bg-sky-950/60 text-sky-700 dark:text-sky-300 text-xs font-semibold mb-2">
               <MessageSquare className="w-3.5 h-3.5" />
-              <span>Community Forum & Feedback</span>
+              <span>{t('tabTalk')}</span>
             </div>
             <h1 className="text-2xl sm:text-3xl font-black tracking-tight text-slate-900 dark:text-white">
-              Talk to Us
+              {t('talkToUsTitle')}
             </h1>
             <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm mt-1 max-w-xl">
-              Share real-time haze observations, ask fellow tourists for indoor recommendations, or give feedback to the Captain Haze team.
+              {t('talkToUsDesc')}
             </p>
           </div>
 
@@ -63,7 +63,7 @@ export const TalkToUs: React.FC = () => {
             <div className="px-3.5 py-2 rounded-2xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-bold text-slate-800 dark:text-slate-200 flex items-center gap-2">
               <Users className="w-4 h-4 text-sky-500" />
               <CommentCount shortname="captainhaze" config={disqusConfig}>
-                Comments
+                {t('comments')}
               </CommentCount>
             </div>
           </div>
@@ -74,7 +74,7 @@ export const TalkToUs: React.FC = () => {
           <div className="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-700/60 flex items-start gap-2.5">
             <HeartHandshake className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
             <div>
-              <strong className="block text-slate-900 dark:text-white">Traveler Support</strong>
+              <strong className="block text-slate-900 dark:text-white">{t('travelerSupport')}</strong>
               <span className="text-[11px] text-slate-500 dark:text-slate-400">Share tips on covered routes and air-conditioned spots.</span>
             </div>
           </div>
@@ -82,7 +82,7 @@ export const TalkToUs: React.FC = () => {
           <div className="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-700/60 flex items-start gap-2.5">
             <Shield className="w-4 h-4 text-sky-500 shrink-0 mt-0.5" />
             <div>
-              <strong className="block text-slate-900 dark:text-white">Verified Info</strong>
+              <strong className="block text-slate-900 dark:text-white">{t('verifiedInfo')}</strong>
               <span className="text-[11px] text-slate-500 dark:text-slate-400">Keep discussions respectful and grounded in NEA facts.</span>
             </div>
           </div>
@@ -90,7 +90,7 @@ export const TalkToUs: React.FC = () => {
           <div className="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-700/60 flex items-start gap-2.5">
             <Sparkles className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
             <div>
-              <strong className="block text-slate-900 dark:text-white">Live Feedback</strong>
+              <strong className="block text-slate-900 dark:text-white">{t('liveFeedback')}</strong>
               <span className="text-[11px] text-slate-500 dark:text-slate-400">Request new attractions or report pharmacy mask stock.</span>
             </div>
           </div>

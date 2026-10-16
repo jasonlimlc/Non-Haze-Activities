@@ -13,7 +13,7 @@ import {
 import { useApp } from '../context/AppContext';
 import { SupportedLanguage } from '../data/translations';
 
-export type AppTab = 'overview' | 'live' | 'itinerary' | 'guide' | 'talk';
+export type AppTab = 'live' | 'itinerary' | 'guide' | 'talk';
 
 interface NavbarProps {
   activeTab: AppTab;
@@ -66,7 +66,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-4 px-4 sm:px-6 py-2.5 sm:py-3">
           {/* Decluttered Brand Wordmark */}
           <button
-            onClick={() => onSelectTab('overview')}
+            onClick={() => onSelectTab('live')}
             className="flex items-center gap-2 text-left text-base font-bold text-slate-900 dark:text-white shrink-0 hover:opacity-85 transition-opacity"
           >
             <div className="w-7 h-7 rounded-lg bg-sky-600 text-white flex items-center justify-center font-black text-xs shadow-xs">
@@ -77,16 +77,6 @@ export const Navbar: React.FC<NavbarProps> = ({
 
           {/* Decluttered Navigation Links (Desktop) */}
           <nav className="hidden md:flex items-center gap-7 text-sm font-medium text-slate-600 dark:text-slate-300">
-            <button
-              onClick={() => onSelectTab('overview')}
-              className={`transition-colors py-1 ${
-                activeTab === 'overview'
-                  ? 'text-sky-600 dark:text-sky-400 font-bold border-b-2 border-sky-600 dark:border-sky-400'
-                  : 'hover:text-slate-900 dark:hover:text-white'
-              }`}
-            >
-              {t('tabOverview')}
-            </button>
             <button
               onClick={() => onSelectTab('live')}
               className={`transition-colors py-1 ${
@@ -244,17 +234,6 @@ export const Navbar: React.FC<NavbarProps> = ({
 
       {/* Mobile Bottom Dock Navigation */}
       <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 dark:bg-slate-900/95 backdrop-blur-lg border-t border-slate-200 dark:border-slate-800 px-3 py-2 flex items-center justify-around shadow-2xl safe-area-pb">
-        <button
-          onClick={() => onSelectTab('overview')}
-          className={`flex flex-col items-center gap-1 py-1 px-3 rounded-xl transition-all ${
-            activeTab === 'overview'
-              ? 'text-sky-600 dark:text-sky-400 font-bold'
-              : 'text-slate-500 dark:text-slate-400'
-          }`}
-        >
-          <Home className="w-4 h-4" />
-          <span className="text-[11px]">{t('tabOverview')}</span>
-        </button>
 
         <button
           onClick={() => onSelectTab('live')}
